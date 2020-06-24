@@ -4,7 +4,7 @@ from os import listdir, system
 from time import sleep
 
 # The path of directory where all the images are stored.
-PATH = r'/home/vipul/Desktop/Stuff/slider/'
+PATH = r'./slider/'
 
 # Getting the files that are available in the target folder.
 allFiles = listdir(PATH)
