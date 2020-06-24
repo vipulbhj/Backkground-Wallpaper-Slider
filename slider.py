@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
-from os import listdir, system
+from os import listdir, system, path
 from time import sleep
 
 # The path of directory where all the images are stored.
-PATH = r'./slider/'
+BASE_PATH = path.dirname(path.abspath(__file__))
+PATH      = path.join(BASE_PATH, 'slider/')
 
 # Getting the files that are available in the target folder.
 allFiles = listdir(PATH)
@@ -23,7 +24,8 @@ while True:
     # Command required
     # gsettings set org.gnome.desktop.background picture-uri file:///path/to/the/file
     file = PATH + allFiles[i]
-    command = r'gsettings set org.gnome.desktop.background picture-uri file:' + str(file)
+    command = r'gsettings set org.gnome.desktop.background picture-uri file://' + str(file)
+    print(command)
     system(command)
     sleep(60)
     i += 1
